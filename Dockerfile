@@ -3,7 +3,7 @@ FROM node:10-alpine
 WORKDIR /code
 
 COPY package.json /code
-COPY package-lock.json /code
+COPY yarn.lock /code
 
 RUN yarn --frozen-lockfile 
 
