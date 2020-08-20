@@ -19,12 +19,6 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
-  config.security = {
-    xframe: {
-      enable: false,
-    },
-  };
-
   config.cors = {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',

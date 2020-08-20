@@ -6,7 +6,9 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
-
+  security: {
+    enable: false,
+  },
   validate: {
     enable: true,
     package: 'egg-validate',
