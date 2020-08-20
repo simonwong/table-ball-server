@@ -21,7 +21,10 @@ class UserController extends Controller {
   async create() {
     const { ctx } = this;
     const { body } = ctx.request;
-    const user = await ctx.model.User.create(Object.assign(body, { score: 0 }));
+    const user = await ctx.model.User.create({
+      score: 0,
+      ...body,
+    });
     this.success({ id: user.id });
   }
   async update() {
