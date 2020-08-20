@@ -22,7 +22,8 @@ pipeline {
         sh "docker build -t ${IMG_NAME} -f Dockerfile ."
         sh "docker run -d \
             -p 7310:7310 \
-            -v /usr/local/config_center/table_ball:/code/config \
+            -v /usr/local/config_center/table_ball/config.prod.js:/code/config/config.prod.js \
+            -v /usr/local/config_center/table_ball/config.json:/code/config/config.json \
             --name ${CONTAINER_NAME} \
             ${IMG_NAME}"
       }

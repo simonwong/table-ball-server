@@ -24,6 +24,12 @@ module.exports = appInfo => {
       enable: false,
     },
   };
+
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  };
+
   // add your user config here
   const userConfig = {
     dialect: 'mysql',

@@ -17,7 +17,12 @@ class ScoreController extends Controller {
     const { body } = ctx.request;
 
     if (Array.isArray(body)) {
-      // TODO: asd
+      const newData = body.map(({ userId, score }) => ({
+        id: toInt(userId),
+        score,
+      }));
+      const user = await ctx.model.User.bulkCreate(newData, { updateOnDuplicate: [ 'score' ] });
+      this.success(user);
     } else {
       const user = await ctx.model.User.findByPk(toInt(body.userId));
       if (!user) {
